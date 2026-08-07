@@ -44,9 +44,9 @@ export default function App() {
       <ThemeToggle isDark={isDark} onClick={toggleTheme} />
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
-      <main className="flex w-full max-w-410 flex-col items-center gap-6 p-6 pt-24">
-        <HeroBanner isDark={isDark} />
+      <HeroBanner isDark={isDark} />
 
+      <main className="flex w-full max-w-410 flex-col items-center gap-6 p-6">
         <Topbar time={time} date={date} />
 
         <KpiGrid />
