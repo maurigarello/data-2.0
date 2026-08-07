@@ -13,13 +13,13 @@ export default function Sidebar({ isOpen, onClose }) {
       )}
 
       <aside
-        className={`fixed top-0 left-0 z-40 flex h-screen w-72 flex-col items-center overflow-y-auto overflow-x-hidden border-r border-slate-200 bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out dark:border-slate-700/20 dark:bg-slate-900 ${
+        className={`fixed top-0 left-0 z-40 flex h-screen w-80 flex-col items-center overflow-y-auto overflow-x-hidden border-r border-slate-200 bg-white p-5 shadow-2xl transition-transform duration-300 ease-in-out dark:border-slate-700/20 dark:bg-slate-900 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="flex w-full flex-col items-center gap-2 pt-2">
-          <div className="flex h-24 w-full items-center justify-center overflow-hidden rounded-2xl bg-blue-600">
-            <img src={logo} alt="Personal logo" className="h-full w-full object-cover object-center" />
+          <div className="flex h-20 w-full items-center justify-center overflow-hidden rounded-2xl bg-black">
+            <img src={logo} alt="Personal logo" className="h-full w-full object-contain object-center" />
           </div>
           <div className="grid justify-items-center gap-0.5 text-center">
             <span className="font-bold text-blue-700 dark:text-blue-400">Datacenter Pacheco</span>
