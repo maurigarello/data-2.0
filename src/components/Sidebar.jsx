@@ -1,7 +1,7 @@
 import logo from '../assets/personal-gif.gif'
 import { menuItems } from '../data/dashboardData'
 
-export default function Sidebar({ isDark, onToggleTheme, isOpen, onClose }) {
+export default function Sidebar({ isOpen, onClose }) {
   return (
     <>
       {isOpen && (
@@ -40,16 +40,6 @@ export default function Sidebar({ isDark, onToggleTheme, isOpen, onClose }) {
             </a>
           ))}
         </nav>
-
-        <div className="mt-auto flex w-full justify-center pt-4">
-          <button
-            onClick={onToggleTheme}
-            aria-label="Cambiar tema"
-            className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-xl text-slate-900 shadow-[0_8px_18px_rgba(15,23,42,0.08)] transition hover:bg-blue-600/8 active:translate-y-px active:scale-98 dark:border-slate-700/20 dark:bg-slate-800 dark:text-slate-100"
-          >
-            {isDark ? '☀️' : '🌙'}
-          </button>
-        </div>
       </aside>
     </>
   )

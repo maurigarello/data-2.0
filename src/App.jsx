@@ -13,6 +13,7 @@ import { useState } from 'react'
 
 import Sidebar from './components/Sidebar'
 import SidebarToggle from './components/SidebarToggle'
+import ThemeToggle from './components/ThemeToggle'
 import HeroBanner from './components/HeroBanner'
 import Topbar from './components/Topbar'
 import KpiGrid from './components/KpiGrid'
@@ -40,12 +41,8 @@ export default function App() {
   return (
     <div className="flex min-h-screen w-full flex-col items-center overflow-x-hidden bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <SidebarToggle isOpen={isSidebarOpen} onClick={() => setIsSidebarOpen((prev) => !prev)} />
-      <Sidebar
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+      <ThemeToggle isDark={isDark} onClick={toggleTheme} />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       <main className="flex w-full max-w-410 flex-col items-center gap-6 p-6 pt-24">
         <HeroBanner isDark={isDark} />
