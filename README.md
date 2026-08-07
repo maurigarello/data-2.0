@@ -1,62 +1,44 @@
 # Consumo Data 2.0
 
-Dashboard HTML para el Datacenter Pacheco.
+SPA (Single Page Application) del dashboard de monitoreo para el Datacenter Pacheco, construida con **React**, **Vite** y **Tailwind CSS**.
 
-## Características incluidas
+## Características
 
-- Dashboard principal con sidebar y modo oscuro
-- Más de 12 KPIs al estilo versión 2.0
-- Gráficos interactivos con Chart.js
-- Consumo instantáneo y reloj en tiempo real
-- Alarmas y tabla de eventos
+- Dashboard con sidebar colapsable y modo oscuro (clase `dark` en `<html>`)
+- Más de 12 KPIs
+- Gráficos interactivos con Chart.js (`react-chartjs-2`): consumo por sector, diario, mensual, temperatura y humedad
+- Panel de clima en vivo (Open-Meteo API) con pronóstico de 4 días
+- Consumo instantáneo simulado y reloj en tiempo real
+- Alarmas y tabla de últimos eventos
 - Responsive para pantallas móviles y desktop
 
-## Archivos del proyecto
+## Estructura del proyecto
 
-- `index.html` — estructura del dashboard
-- `styles/style.css` — diseño y modo oscuro
-- `scripts/main.js` — lógica de reloj, gráficos y actualización de consumo
-- `.gitignore` — archivos ignorados por Git
+- `index.html` — punto de entrada de Vite
+- `src/main.jsx` — bootstrap de React
+- `src/App.jsx` — layout principal y composición de paneles
+- `src/components/` — componentes de UI (Sidebar, Topbar, HeroBanner, KpiGrid, Panel, SimpleChart, SectorChart, WeatherPanel, InstantMeter, AlarmsPanel, EventsTable)
+- `src/hooks/` — lógica de estado (`useClock`, `useInstantValue`, `useTheme`, `useWeather`)
+- `src/data/dashboardData.js` — datos del dashboard (KPIs, series de gráficos, eventos, alarmas)
+- `src/assets/` — imágenes (logo, fotos del datacenter día/noche)
 
 ## Cómo usar
 
-1. Abre `index.html` en tu navegador.
-2. Cambia el modo oscuro usando el botón del sidebar.
-3. Revisa los gráficos y el consumo simulado.
-
-## Cambios recientes
-
-- Sidebar fijo y responsive; menú no se superpone al hacer scroll.
-- Panel de clima compactado y alineado.
-- Gráfico 'Consumo por sector' con colores, leyenda interactiva y porcentajes.
-- Tooltip del gráfico muestra valor y porcentaje por segmento.
-- Modo nocturno y reloj en tiempo real.
-
-## Notas de prueba
-
-- Los porcentajes en la leyenda y tooltip se calculan a partir de `scripts/main.js` usando `sectorData.values`.
-- Si el tooltip no aparece correctamente, recargar la página puede ser necesario.
-
-¿Querés que haga un zip del proyecto o haga el primer commit por vos?
-
-## Git
-
-El proyecto está preparado para inicializar Git.
-
-Para crear el repositorio local y hacer el primer commit:
-
 ```bash
-git init
-git add .
-git commit -m "Consumo Data 2.0 - dashboard inicial"
+npm install
+npm run dev
 ```
 
-Para subirlo a GitHub desde tu cuenta:
+Abre la URL que indique Vite (por defecto `http://localhost:5173`).
+
+Para generar el build de producción:
 
 ```bash
-git remote add origin https://github.com/TU_USUARIO/CONSUMO-DATA.git
-git branch -M main
-git push -u origin main
+npm run build
+npm run preview
 ```
 
-> Reemplaza `TU_USUARIO` con tu usuario de GitHub.
+## Notas
+
+- El panel de clima consume la API pública de [Open-Meteo](https://open-meteo.com/) para las coordenadas del Datacenter Pacheco.
+- El modo oscuro se controla con Tailwind (`@custom-variant dark`) alternando la clase `dark` en el elemento raíz.
