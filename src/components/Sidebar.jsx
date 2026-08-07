@@ -18,7 +18,7 @@ export default function Sidebar({ isOpen, onClose }) {
         }`}
       >
         <div className="flex w-full flex-col items-center gap-2 pt-2">
-          <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-blue-600 ring-4 ring-blue-600/15">
+          <div className="flex h-24 w-full items-center justify-center overflow-hidden rounded-2xl bg-blue-600">
             <img src={logo} alt="Personal logo" className="h-full w-full object-cover object-center" />
           </div>
           <div className="grid justify-items-center gap-0.5 text-center">
